@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ENVISION - Architectural & Engineering Consultants</title>
+
+  <link rel="icon" href="images/logo/logosign.png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Nunito:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: #b9c7df;
+      color: #ffffff;
+      padding-top: 120px; /* ✅ FIX FOR FIXED HEADER */
+    }
+
+    /* ================= HEADER ================= */
+    
+    #header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.3);
+                backdrop-filter: blur(10px);
+                transition: background 0.4s ease-in-out;
+                z-index: 1000;
+            }
+
+
+    .navbar a {
+      color: #ffffff;
+      font-weight: 600;
+      margin-left: 20px;
+    }
+
+    .navbar a:hover {
+      color: #ffc107;
+    }
+
+    /* ================= TOP BAND ================= */
+    .top-band {
+      background: #030816;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .page-title {
+  font-family: 'Playfair Display', serif;
+  color: #eae5e5;          /* text color here */
+  font-size: 40px;
+  letter-spacing: 2px;
+}
+
+    /* ================= CONTENT ================= */
+    .page-bg {
+      background: #acb2bd;
+      padding-bottom: 80px;
+    }
+    
+    
+    .content-panel,
+    .team-panel {
+      max-width: 1200px;
+      margin: 80px auto;
+      background: #5b6272;
+      padding: 50px 60px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.45);
+    }
+
+    .content-panel p,
+    .team-panel p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #d7d7d7;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      margin: 40px 0 15px;
+    }
+
+    /* ================= ANGLED DIVIDER ================= */
+    .angled-divider {
+      position: relative;
+      height: 140px;
+      background: #e9fbff;
+      overflow: hidden;
+    }
+
+    .angled-divider::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -60px;
+      height: 160px;
+      background: #a4b1c7;
+      transform: skewY(-3deg);
+    }
+
+    /* ================= MODELS ================= */
+    .models-section {
+      background: #415f9b;
+      text-align: center;
+      padding: 120px 20px 60px;
+    }
+
+    .models-title {
+      font-family: 'Playfair Display', serif;
+      color: #121212;   
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+
+    .models-section p {
+      color: #d7d7d7;
+      font-size: 16px;
+    }
+
+    /* ================= EXPERTS ================= */
+    .experts-wrapper {
+      background: #ffffff;
+      color: #111;
+      padding: 60px 20px;
+    }
+
+    .experts-inner {
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .experts-cards {
+      background: #e9fbff;
+      padding: 60px 0;
+    }
+
+    .experts-cards-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .expert-card {
+      width: 280px;
+      text-align: center;
+    }
+
+    .expert-photo img {
+      width: 100%;
+      border-radius: 50% 40% 50% 40%;
+    }
+
+    /* ================= BIOS ================= */
+    .bios-section {
+      background: #e9fbff;
+      padding: 80px 20px;
+      color: #222;
+    }
+
+    .bios-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 60px;
+    }
+
+    .bio-block h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+    }
+
+    .bio-block h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .bio-block p {
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+
+    /* ================= FOOTER ================= */
+    .footer-bar {
+      background: #e9fbff;
+      border-top: 1px solid #cfdde0;
+      padding: 12px 20px;
+      font-size: 12px;
+      color: #555;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 900px) {
+      .bios-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .content-panel,
+      .team-panel {
+        margin: 40px 15px;
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header id="header">
+  <div class="container d-flex align-items-center justify-content-between py-3">
+    <a href="index.html">
+      <img src="images/logo/logowidname.png" height="80" alt="Envision Logo">
+    </a>
+
+    <nav class="navbar navbar-expand-lg">
+      <ul class="navbar-nav ms-auto">
+                      <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                      <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                      <li class="nav-item"><a class="nav-link" href="services.html">Our Services</a></li>
+                      <li class="nav-item"><a class="nav-link" href="resenditial.html">Residential</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#team">Our Team</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+                  </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= PAGE TITLE ================= -->
+<div class="top-band">
+  <h1 class="page-title">About Envision</h1>
+</div>
+
+<div class="page-bg">
+
+  <div class="content-panel">
+    <p>
+      Envision Architectural Consulting Engineers is one of Ajman’s growing design practices, offering comprehensive services in Architecture and Interior Design. Led by Chief Architects Smita Anand and Pawan Kumar, our team of skilled architects, interior designers, and civil and MEP engineers delivers innovative and inspiring solutions across residential, commercial, institutional, and healthcare projects.
+    </p>
+    <p>Our projects are distinguished by their unique and high-quality architectural outcomes, reflecting our unwavering commitment to design excellence, research, and development. We take pride in our reputation for delivering superior design solutions, efficient project management, and successful project execution. From initial concept sketches to contract administration, we work diligently to ensure every project meets the highest standards of quality and client satisfaction.</p>
+
+    <h2 class="section-title">Our Vision</h2>
+    <p>
+      ENVISION AEC has the vision to be a global leader in innovative architectural and engineering solutions, transforming the built environment through sustainable design, cutting-edge technology, and collaborative expertise. We are shaping communities and enhancing lives by creating functional, aesthetic, and environmentally responsible spaces that stand the test of time.
+    </p>
+
+    <h2 class="section-title">Our Mission</h2>
+    <p>
+      ENVISION AEC, our mission is to provide integrated, high-quality architectural and engineering services that enhance the built environment. We aim to create functional, aesthetic, and sustainable solutions for our clients while adhering to the highest standards of safety, efficiency, and innovation. We provide to build reliable relationship between the contractor and the client, as it is more important in today world to work without conflict.
+    </p>
+  </div>
+
+  <div class="team-panel">
+    <h2>Team Envision</h2>
+    <p>
+      At Envision Architectural & Engineering Consultants, we take pride in the expertise and dedication of our diverse team, which plays a pivotal role in delivering exceptional engineering solutions.
+    </p>
+    <p>Our team includes skilled Civil Engineers with over 5 years of experience in both site and office-based work. Their extensive knowledge of construction processes, combined with their hands-on experience, ensures that every project is executed to the highest standards.</p>
+    <p>Additionally, we have highly experienced MEP Engineers with more than 8 years of experience in the UAE. Their expertise in Mechanical, Electrical, and Plumbing systems allows us to offer comprehensive and efficient engineering solutions, meeting the specific needs of each project and ensuring the seamless integration of all systems.</p>
+    <p>Together, our team is committed to excellence, delivering innovative, sustainable, and cost-effective solutions in every project we undertake.</p>
+  </div>
+
+</div>
+
+<div class="angled-divider"></div>
+
+<section class="models-section">
+  <h2 class="models-title">Our Models</h2>
+  <p>Discover our expertly crafted architectural models, each designed to showcase the beauty and functionality of your vision.</p>
+</section>
+
+<section>
+<h2 class="models-title">Meet our experts</h2>
+  <p>Dedicated professionals driving our success.</p></section>
+
+<section class="experts-cards">
+  <div class="experts-cards-inner">
+    <div class="expert-card">
+      <div class="expert-photo">
+        <img src="images/pics/02-STAFF PICS/SMITA.jpg">
+      </div>
+    </div>
+    <div class="expert-card">
+      <div class="expert-photo">
+        <img src="images/pics/02-STAFF PICS/PAWAN KUMAR.jpg">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bios-section">
+  <div class="bios-inner">
+    <div class="bio-block">
+      <h3>Architect Smita Anand</h3>
+      <h4>Founder & Managing Director</h4>
+      <p>Ar. Smita Anand is the Managing Director of Envision, an esteemed engineering consulting firm specialising in architecture and interior design. With a Bachelor of Architecture in Building Construction and Management from a recognised university in India, she possesses a strong academic foundation that has fueled her successful career in the architecture field.</p>
+      <p>With over 8 years of experience in India and 4+ years of experience in the UAE, Ar. Smita Anand has honed her expertise in architecture design and interior solutions. Her extensive experience has enabled her to work on diverse projects across both countries, demonstrating a deep understanding of design principles, construction management, and the unique challenges of the industry.</p>
+      <p>As a leader, Ar. Smita brings a wealth of knowledge, creativity, and a commitment to delivering high-quality and sustainable solutions. Her vision drives the firm’s growth, ensuring that every project is executed with precision, innovation, and attention to detail.</p>
+    </div>
+
+    <div class="bio-block">
+      <h3>Architect Pawan Kumar</h3>
+      <h4>Co-Founder & Lead Architect</h4>
+      <p>Ar. Pawan Kumar is the Lead Architect at Envision, with over 15 years of experience in architecture and design. He completed his Bachelor of Architecture in Building Construction and Management from a recognised university in India, where he gained a strong theoretical and practical grounding in the field.</p>
+      <p>With more than 15 years of experience in India and over 6 years in the UAE, Ar. Pawan Kumar has become a key figure in architecture design & interior, landscape architecture, and residential buildings. His expertise in design and planning has allowed him to deliver exceptional, sustainable solutions tailored to meet the needs of diverse clients.</p>
+      <p>Ar. Pawan Kumar has played an instrumental role in the successful delivery of over 100+ villas and 50+ buildings in the UAE, showcasing his proficiency in both residential and commercial projects. His creativity, technical skills, and leadership ensure that every project is executed to the highest standards, from initial design concepts to completed structures.</p>
+      <p>As an expert in design and planning, Ar. Pawan Kumar is known for his ability to seamlessly blend aesthetics with functionality, ensuring that each project meets the client’s vision and requirements.</p>
+    </div>
+  </div>
+</section>
+
+ <!--popup section-->
+    <!-- Bootstrap & Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Floating Call Button -->
+    <style>
+      .floating-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: linear-gradient(45deg, #007bff, #0056b3);
+        color: white;
+        border: none;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s;
+      }
+      .floating-btn:hover { transform: scale(1.1); }
+      .floating-btn i { font-size: 1.5rem; }
+      .modal-content { border-radius: 15px; padding: 20px; box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); }
+      .btn-primary {
+        background: linear-gradient(45deg, #007bff, #0056b3);
+        border: none;
+        border-radius: 10px;
+        font-size: 1.2rem;
+        transition: 0.3s;
+      }
+      .btn-primary:hover { background: linear-gradient(45deg, #0056b3, #003d80); }
+    </style>
+    
+    <!-- Floating Contact Button -->
+    <button class="floating-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <i class="fas fa-phone"></i>
+    </button>
+    
+   <!-- Bootstrap Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 w-100">Envision</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="text-center">
+        <img src="images/logo/logowidname.png" alt="Logo" class="img-fluid my-2" style="max-width: 150px;">
+      </div>
+      <div class="modal-body text-center">
+        <p class="text-muted">Any query or suggestion? Call us, we'll be happy to assist you.</p>
+        <p class="fw-bold text-primary mt-3">+971 52 512 9617</p>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!--End of pop up section-->
+
+
+<div class="footer-bar">
+  <span>Copyright © Envision Architectural Consulting LLC.</span>
+</div>
+
+<script>
+  const header = document.getElementById("header");
+  window.addEventListener("scroll", () => {
+    header.classList.toggle("scrolled", window.scrollY > 50);
+  });
+</script>
+
+</body>
+</html>

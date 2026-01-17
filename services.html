@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ENVISION - Architectural & Engineering Consultants</title>
+
+  <link rel="icon" href="images/logo/logosign.png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Nunito:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: #b9c7df;
+      color: #222222;
+      padding-top: 120px; /* fixed header offset */
+    }
+
+    /* ================= HEADER (your original) ================= */
+
+    #header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      transition: background 0.4s ease-in-out;
+      z-index: 1000;
+    }
+
+    .navbar a {
+      color: #ffffff;
+      font-weight: 600;
+      margin-left: 20px;
+    }
+
+    .navbar a:hover {
+      color: #ffc107;
+    }
+
+    /* ================= TOP BAND ================= */
+
+    .top-band {
+      background: #6d6c74;
+      padding: 18px 0;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      letter-spacing: 1px;
+      margin: 0;
+    }
+
+    /* ================= MAIN SERVICE GRID ================= */
+
+    .services-area {
+      background: #cbe6f5;
+      padding: 60px 0 80px;
+    }
+
+    .services-grid {
+      max-width: 1050px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      background: #ffffff;
+      border-radius: 4px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.12);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .service-body {
+      padding: 12px 14px 16px;
+    }
+
+    .service-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #222222;
+    }
+
+    .service-text {
+      font-size: 12px;
+      line-height: 1.5;
+      color: #666666;
+      margin-bottom: 0;
+    }
+
+    /* ================= TESTIMONIAL CAROUSEL (BLUE) ================= */
+
+    .testimonial-section {
+      background: #0c4c94;
+      padding: 80px 20px;
+      color: #111;
+      position: relative;
+    }
+
+    .testimonial-slider {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 6px;
+      padding: 50px 60px 40px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+      text-align: center;
+      position: relative;
+    }
+
+    .quote-icon {
+      position: absolute;
+      top: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #0c4c94;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 22px;
+    }
+
+    .testimonial-text-main {
+      font-size: 20px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      color: #333333;
+    }
+
+    .client-photo {
+  width: 70px;              /* oval width */
+  height: 54px;             /* oval height */
+  border-radius: 50%;       /* makes it oval because width ≠ height */
+  object-fit: contain;      /* show entire image without cutting */
+  background-color: #ffffff;/* optional: adds white behind transparent areas */
+  padding: 2px;             /* small inner gap */
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  margin-bottom: 12px;
+}
+
+
+    .client-name {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .client-role {
+      font-size: 12px;
+      color: #777777;
+    }
+
+    .arrow-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      border-radius: 6px;
+      border: none;
+      background: rgba(0,0,0,0.35);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .arrow-btn:hover {
+      background: rgba(0,0,0,0.6);
+    }
+
+    .arrow-left {
+      left: 60px;
+    }
+
+    .arrow-right {
+      right: 60px;
+    }
+
+    /* ================= CLIENTS & TESTIMONIALS BLOCK ================= */
+
+    .clients-strip {
+      background-color: #050812;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .clients-panel {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 90px 110px;
+      position: relative;
+      font-family: "Nunito", sans-serif;
+      color: #111111;
+      z-index: 1;
+    }
+
+    .clients-strip::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      left: -80px;
+      right: -80px;
+      bottom: -120px;
+      background-color: #ddeef3;
+      transform: rotate(-3deg);
+      transform-origin: center;
+      z-index: 0;
+    }
+
+    .clients-title {
+      font-family: "Playfair Display", serif;
+      font-size: 34px;
+      margin-bottom: 26px;
+    }
+
+    .clients-text {
+      font-size: 14px;
+      line-height: 1.9;
+      margin-bottom: 14px;
+    }
+
+    /* ================= FOOTER ================= */
+
+    .footer-bar {
+      background: #000000;
+      border-top: 1px solid #444444;
+      padding: 14px 20px;
+      font-size: 11px;
+      color: #f1f1f1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links a {
+      color: #f1f1f1;
+      text-decoration: none;
+      margin-left: 10px;
+      font-size: 11px;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 992px) {
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 900px) {
+      .clients-panel {
+        padding: 60px 24px;
+      }
+      .testimonial-slider {
+        padding: 40px 24px 30px;
+      }
+      .arrow-left { left: 16px; }
+      .arrow-right { right: 16px; }
+    }
+
+    @media (max-width: 768px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header id="header">
+  <div class="container d-flex align-items-center justify-content-between py-3">
+    <a href="index.html">
+      <img src="images/logo/logowidname.png" height="80" alt="Envision Logo">
+    </a>
+
+    <nav class="navbar navbar-expand-lg">
+       <ul class="navbar-nav ms-auto">
+                      <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                      <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                      <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                      <li class="nav-item"><a class="nav-link" href="resenditial.html">Residential</a></li>
+                      <li class="nav-item"><a class="nav-link" href="buildings.html">Buildings</a></li>
+                      <li class="nav-item"><a class="nav-link" href="shreds.html">Shreds</a></li>
+                      <li class="nav-item"><a class="nav-link" href="interior.html">Interiors</a></li>
+                  </ul>
+    </nav>
+  </div>
+</header>
+
+  <!-- ================= TITLE BAND ================= -->
+  <div class="top-band">
+    <h1 class="page-title">Envision AEC Services</h1>
+  </div>
+
+  <!-- ================= SERVICES GRID ================= -->
+  <section class="services-area">
+    <div class="services-grid">
+
+      <!-- Row 1 -->
+      <article class="service-card">
+        <img src="images/pics/03-SERVICES/ARCHITECTURE.jpg" alt="Architecture Design Exterior">
+        <div class="service-body">
+          <h3 class="service-title">Architecture Design Exterior</h3>
+          <p class="service-text">
+            High-quality facades, energy-efficient windows, durable cladding, sustainable roofing and well-planned entryways, creating visually striking and environmentally responsible buildings.
+          </p>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <img src="images/pics/03-SERVICES/INTERIOR.jpg" alt="Architecture Design Interior">
+        <div class="service-body">
+          <h3 class="service-title">Architecture Design Interior</h3>
+          <p class="service-text">
+            Efficient space planning, premium finishes, integrated lighting, bespoke joinery and thoughtful detailing to deliver functional, comfortable and inspiring interior environments.
+          </p>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <img src="images/pics/03-SERVICES/Structural Designing.jpg" alt="Structural Designing">
+        <div class="service-body">
+          <h3 class="service-title">Structural Designing</h3>
+          <p class="service-text">
+            Robust and economical structural systems engineered to safely resist gravity, wind and seismic forces while meeting current codes, safety standards and performance criteria.
+          </p>
+        </div>
+      </article>
+
+      <!-- Row 2 -->
+      <article class="service-card">
+        <img src="images/pics/03-SERVICES/MEP.jpg" alt="MEP Engineering">
+        <div class="service-body">
+          <h3 class="service-title">MEP Engineering</h3>
+          <p class="service-text">
+            Integrated mechanical, electrical and plumbing solutions with a focus on energy efficiency, occupant comfort, maintainability and reliable building operations.
+          </p>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <img src="images/pics/03-SERVICES/PROJECT MAMAGEMENT.jpg" alt="Consulting & Project Management">
+        <div class="service-body">
+          <h3 class="service-title">Consulting & Project Management</h3>
+          <p class="service-text">
+            Comprehensive project planning, coordination and technical advisory services to control cost, quality and timelines from concept through completion.
+          </p>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <img src="images/pics/03-SERVICES/SITE SUPERVISION.jpg" alt="Supervision & Site Inspection">
+        <div class="service-body">
+          <h3 class="service-title">Supervision & Site Inspection</h3>
+          <p class="service-text">
+            On-site monitoring, quality checks and detailed reporting to ensure construction aligns with approved drawings, specifications and safety requirements.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIAL CAROUSEL STRIP ================= -->
+  <section class="testimonial-section">
+    <button class="arrow-btn arrow-left" id="prevBtn">&#8249;</button>
+
+    <div class="testimonial-slider">
+      <div class="quote-icon">&rdquo;</div>
+
+      <p class="testimonial-text-main" id="tText">
+        A diverse range of high‑quality engineering solutions and outstanding service! I highly recommend this consultancy 200%.
+      </p>
+
+      <img src="images/pics/02-STAFF PICS/KHALID SPONSAR.jpg" alt="Client 1" class="client-photo" id="tPhoto">
+
+      <div class="client-name" id="tName">Khalid Nasser Mohammed Yousef</div>
+      <div class="client-role" id="tRole">Partner/Sponsor</div>
+    </div>
+
+    <button class="arrow-btn arrow-right" id="nextBtn">&#8250;</button>
+  </section>
+
+  <!-- ================= CLIENTS & TESTIMONIALS BLOCK ================= -->
+  <section class="clients-strip">
+    <div class="clients-panel">
+      <h2 class="clients-title">Clients &amp; testimonials</h2>
+
+      <p class="clients-text">
+        Envision Architectural Consulting Engineers is one of Ajman’s leading design practices, offering comprehensive services in Architecture and Interior Design. Led by Chief
+        Architects Smita Anand and Pawan Kumar, our team of skilled architects, interior designers, and civil and MEP engineers delivers innovative and inspiring solutions across
+        residential, commercial, institutional, and healthcare projects.
+      </p>
+
+      <p class="clients-text">
+        Our projects are distinguished by their unique and high‑quality architectural outcomes, reflecting our unwavering commitment to design excellence, research, and development.
+        We take pride in our reputation for delivering superior design solutions, efficient project management, and successful project execution. From initial concept sketches to
+        contract administration, we work diligently to ensure every project meets the highest standards of quality and client satisfaction.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer-bar">
+    <span>Copyright © Envision Architectural Consulting LLC.</span>
+    <span class="footer-links">
+      <a href="#">Privacy policy</a> |
+      <a href="#">Site</a> |
+      <a href="#">Created by our website</a>
+    </span>
+  </footer>
+
+  <script>
+    const header = document.getElementById("header");
+    window.addEventListener("scroll", () => {
+      header.classList.toggle("scrolled", window.scrollY > 50);
+    });
+
+    // testimonial slider data
+    const testimonials = [
+      {
+        text: "A diverse range of high-quality engineering solutions and outstanding service! I highly recommend this consultancy 200%.",
+        photo: "images/pics/02-STAFF PICS/KHALID SPONSAR.jpg",
+        name: "Khalid Nasser Mohammed Yousef",
+        role: "Partner/Sponsor"
+      },
+      {
+        text: "Professional, responsive and creative. The team consistently delivers projects on time with excellent coordination and detailing.",
+        photo: "images/pics/02-STAFF PICS/SMITA.jpg",
+        name: "Architect Smita Anand",
+        role: "Managing Director"
+      },
+      {
+        text: "Their understanding of architecture and engineering is impressive. We received innovative solutions and superb site support.",
+        photo: "images/pics/02-STAFF PICS/PAWAN KUMAR.jpg",
+        name: "Architect Pawan Kumar",
+        role: "Lead Architect & Designer"
+      }
+    ];
+
+    let index = 0;
+    const textEl  = document.getElementById("tText");
+    const photoEl = document.getElementById("tPhoto");
+    const nameEl  = document.getElementById("tName");
+    const roleEl  = document.getElementById("tRole");
+
+    function showTestimonial(i) {
+      const item = testimonials[i];
+      textEl.textContent  = item.text;
+      photoEl.src         = item.photo;
+      photoEl.alt         = item.name;
+      nameEl.textContent  = item.name;
+      roleEl.textContent  = item.role;
+    }
+
+    function next() {
+      index = (index + 1) % testimonials.length;
+      showTestimonial(index);
+    }
+
+    function prev() {
+      index = (index - 1 + testimonials.length) % testimonials.length;
+      showTestimonial(index);
+    }
+
+    document.getElementById("nextBtn").addEventListener("click", () => {
+      next();
+      resetAutoSlide();
+    });
+
+    document.getElementById("prevBtn").addEventListener("click", () => {
+      prev();
+      resetAutoSlide();
+    });
+
+    let autoSlide = setInterval(next, 5000);
+
+    function resetAutoSlide() {
+      clearInterval(autoSlide);
+      autoSlide = setInterval(next, 5000);
+    }
+  </script>
+
+   <!--popup section-->
+    <!-- Bootstrap & Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Floating Call Button -->
+    <style>
+      .floating-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: linear-gradient(45deg, #007bff, #0056b3);
+        color: white;
+        border: none;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s;
+      }
+      .floating-btn:hover { transform: scale(1.1); }
+      .floating-btn i { font-size: 1.5rem; }
+      .modal-content { border-radius: 15px; padding: 20px; box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); }
+      .btn-primary {
+        background: linear-gradient(45deg, #007bff, #0056b3);
+        border: none;
+        border-radius: 10px;
+        font-size: 1.2rem;
+        transition: 0.3s;
+      }
+      .btn-primary:hover { background: linear-gradient(45deg, #0056b3, #003d80); }
+    </style>
+    
+    <!-- Floating Contact Button -->
+    <button class="floating-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <i class="fas fa-phone"></i>
+    </button>
+    
+   <!-- Bootstrap Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 w-100">Envision</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="text-center">
+        <img src="images/logo/logowidname.png" alt="Logo" class="img-fluid my-2" style="max-width: 150px;">
+      </div>
+      <div class="modal-body text-center">
+        <p class="text-muted">Any query or suggestion? Call us, we'll be happy to assist you.</p>
+        <p class="fw-bold text-primary mt-3">+971 52 512 9617</p>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!--End of pop up section-->
+
+</body>
+</html>
